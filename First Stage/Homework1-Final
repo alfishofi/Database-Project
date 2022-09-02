@@ -1,0 +1,252 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{color}
+\usepackage{parskip}
+\usepackage{longtable}
+\usepackage{tabularx, tabularray}
+\usepackage{caption}
+\usepackage{blindtext}
+\usepackage[margin=25mm]{geometry}
+\usepackage{graphicx}
+\begin{document}
+\includegraphics[width = 19cm, height = 22cm]{cover.jpeg}\\
+
+\color{red}
+\section*{Objectives}
+
+\color{black}
+An international non-profit organization that is working towards many social causes in over 74 countries worldwide with many chapters in each country. Each chapter is handling various projects which are funded by the organization with the help of benefactors (Lay Collaborators). The objective of the organization is to collect the data from branches all over the world, analyze it according to the need, and based on the result, decide further operation and the distribution of funds. The collected data as well as the output data should be stored in a database, to achieve efficient management.
+
+\color{red}
+\section*{Interview}
+\color{black}
+An interview had been done to define the project requirements. In particular, we interviewed one of the financial department teams to understand the organization's objective and the nature of the data to be collected and stored.
+\color{red}
+\section*{Users and Stakeholders of the System}
+
+\color{black}
+
+The users of the system are:
+
+\begin{itemize}
+    \item Generalate leadership team: will access all the input data, analyze it and decide to approve or reject the project
+    \item  Financial team: Will input data, store it according to the specific feature of the project, present it to the coordinators, and generalate and update the status
+    \item Coordinators team: Review the data and categories it according to the need
+    \item PRM (Province, Region, Mission) leadership team: input the data if they need the application project to get subsidize from generalate.
+    
+\end{itemize}
+
+\color{red}
+\section*{Natural Language Sentences}
+\color{black}
+An international non-profit organization is presenting the need to own a general management system, to better manage different projects coming from its subsidiaries across the world. The information inside each project’s report is very crucial to perform the needed actions for dealing with the specific application. Since the company is currently providing social services like accommodation, schooling, medical centers, religious activities and financial support, the data they are working with is of a big importance to their job. They are trying to carry out things like: where will the aid go, how much help will be provided, who will manage this task, who will work under them, and how urgent it is. The objective of the organization is to collect the data from branches, analyze it according to the need and based on the result to decide for further operations and the amount of aid will be decided. The input data, as well as the output data should be stored in a database so that if a similar situation is encountered in future projects, immediate assistance can be provided.
+
+The organization wants to develop a system which will hold the information for each project in real time and continuously. They are proposing the development of a global application, which will be easily accessed from each subsidiary any time they want. This new way of working is very essential in reducing a lot of manual work they are dealing with every day and at the same time, it will provide an extra income by reducing the number of people working, providing a more secure approach to their very sensitive information for their work and a more organized work to process each project in the most optimal period with the right priority and efficiency.
+
+Using this application, a specialized team for each branch will insert in the database together with an authorized person who will stand by them and lead them, once they are assigned to a project, the data they need will be immediately given to them through the application for the proposals, offers, presentations and development process they will make. This information will appear in real time in a request form to the Generalate office, which is responsible for further inspections of the project and the evaluation of it. The responsible instance of the Generalate (Generalate Leadership Team, Financial team, Coordinators team), after checking the details they are responsible for, once a decision is taken, will update the status of the request on the system and this change will immediately appear on the system of the corresponding branch, which has previously sent the request.
+
+During the insertion, data of each project is stored using a set of variables, each one corresponding to a specific feature of the project, identified by a unique TAG name. Projects are very different from each other, but the organization will generate a very well-built report for each one of them, to make it easy to insert data in the database. The report will consist of the same variables, descriptive ones, or Yes/No ones for an easier implantation. A particular project provides a set of values, one for each variable. The reason why branches have to
+make this application is the fact that they cannot afford the expenses of a specific activity or can partially afford it. So, they are asking from the main branch for full or partial economic support to do their job with more efficiency.
+
+Each request inserted will be marked with a unique tag and with a status, the status which might be pending, working, confirmed, cancelled. The request can be edited if its status is marked as pending. In another case it will not be able to get edited. Once a request is confirmed or cancelled, the documentation will not be deleted. It is saved in the database with its own unique tag and status. They will be saved on the database for further inspections and to understand more clearly how to act if faced with a similar situation in the future. Also, the reason behind this is the fact that the organization will still have to monitor how the project will be implemented. This will be done using some reports that each branch will deliver from time to time with real time to the organization. It is very important to mention that there is no priority in dealing with the requests. all the zones like Latin America, Africa, Asia, and Europa are equally treated.
+
+The system they are asking for, will need to be accessed by 4 groups of users. Therefore, it will have 4 roles in it.
+
+\begin{itemize}
+    \item The first users, who will add the project on the system are the employees of the Branch Office. The Branch Office will apply a post request and perform an insert action. They can also delete or update the project’s request as long as the status of it is still ‘pending’. Once the status of the request will be changed to ‘working’ they will not be able to perform any change or delete. They will be able to perform requests, in order to look at the status of the project all the time.
+    \item The second users who will access the project are the employees of the Financial Team. The Financial Team is responsible to perform an update request, after performing a get request, in order to fill in the part of the report corresponding to the financial plan.
+    \item The third users of the system are the employees of the Coordinators team. The Coordinators Team will have a view-only role, so they will be able to perform only a get request.
+    \item The fourth and last users are the employees of the Generalate Main Office. This office will have the main role because they will decide whether the project is going to be accepted or rejected. They will perform a get request and then an update one in order to update the status of the project.
+    
+\end{itemize}
+
+For each different project, there will be a well-built report which will hold every information related to the project. It will include the following information :
+
+\begin{itemize}
+    \item Area will be used to show the region where request comes from in detail in the report. In this way, the area to be intervened can be seen more clearly.
+
+    \item Branch Name will be used to determine which coordinator team the report will go to. This will prevent confusion between the coordinator teams.
+
+    \item Person in charge, this will be an area that will be used to store information about who prepared the report and who to contact in the database.
+
+    \item Date of the request, used to specify the date the request was received. In this way, it can be checked whether the requests are in priority or not by historical sorting.
+
+    \item Date of status will be added to show what status the report is in and to show when it changed. So that the officer reading the report can easily see the status of the report with changes and dates.
+
+    \item Status is variable used to show the current status of the report. In this way, it can be easily seen whether it was approved, rejected or in the sending phase .
+
+    \item Deadline is a variable that should be added to the report to show the deadline by which the project should be implemented.
+
+    \item Description of an input where we can easily see the content of the report and its specific explanations. So that the coordinators who read the report can easily decide what will happen to a project.
+
+    \item Type will be added as an entry that will indicate the type of department the report will go to. In this way, it will be easily seen which coordinator's field the report will go to.
+
+    \item Feedback will be an area for feedback on why the report was rejected or approved or pending. Thus, a cause-effect relationship can be drawn for future projects or the current situation.
+    \item Budget will be an area where the maximum and minimum budgets to be given to the project will be seen.In this way, the finance department will be able to see very easily what and how much budget they will set for the projects.
+    
+\end{itemize}
+
+\color{red}
+
+\section*{Filtered Sentences}
+
+\color{black}
+
+An international non-profit organization that is working towards many social causes needs a database to store the different datas of the project. The objective of the organization is to collect the data from branches, analyze it according to the need and based on the result to decide for further operations and the amount of aid will be decided.\\ 
+This crucial information will be helded in real time and continuously and it will appear in real time in a request form to the Generalate office. The responsible instance of the Generalate once a decision is taken, will update the status of the request on the system and this change will immediately appear on the system of the corresponding branch, which has previously sent the request. Data of each project is stored using a set of variables, identified by a unique TAG name. The report will consist of the same variables, descriptive ones, or Yes/No ones for an easier implantation. Each request inserted will be marked with a unique tag and with a status, which might be pending, working, confirmed, cancelled. The organization will monitor how the project will be implemented by using some reports that each branch will deliver from time to time within real time to the organization.\\\\\\
+The system they are asking for, will need to be accessed by 4 groups of users. Therefore, it will have 4 roles in it.
+\begin{itemize}
+    \item\textbf{The branch office users}: They will apply a post request and perform an insert action. They can also delete or update the project’s request. They will be able to perform get requests, in order to look at the status of the project all the time.
+    \item\textbf{The Financial Team}: users who are responsible to perform an update request, after performing a get request, in order to fill in the part of the report corresponding to financial plan.
+    \item\textbf{Coordinators}: who will have a view-only role, so they will be able to perform only a get request.
+    \item\textbf{Generalate Main Office} This office will have the main role because they will decide whether the project is going to be accepted or rejected. They will perform a get request and then an update one in order to update the status of the project.
+    
+\end{itemize}
+For each project will be a report containing information regarding each field of the project, like:
+\begin{itemize}
+    \item \textbf{Area} , shows the region and the province where the project will be located
+    \item\textbf{Branch name }, Determine which coordinator team should deal with each specific project
+    \item \textbf{Person in charge } - Contacts of the person who completed the report
+    \item \textbf{Status } - Current status of the project
+    \item \textbf{Date of the request  } - Where the project has started to emphasise the importance of the requests
+    \item \textbf{Date of the status  } - to show when the status has changed
+    \item \textbf{Deadline  } - the date by which the project should be implemented
+    \item \textbf{Description } - where we can see specific explanations of the project
+    \item \textbf{Type} - to indicate the type of the department that the report will go to
+    \item \textbf{Feedback } - an area that will show either that the project is approved or rejected
+    \item \textbf{Budget } - where the maximum and minimum amount of budget for the project can be seen
+    
+\end{itemize}
+
+\color{red}
+\section*{Term Glossary}
+
+\color{black}
+\begin{longtable}{|p{.19\columnwidth}|p{.250\columnwidth} |p{.20\columnwidth}|p{.30\columnwidth}|}
+
+\hline
+
+\textbf{Term} & \textbf{Description} & \textbf{Synonyms} & \textbf{Connection}
+\\\hline
+User &	People who can access the database system & Members, Leaders, Teams, Stakeholders, &	Financial Office, Branch office, Coordinator Office and Generalate Main Office, TAG. 
+\\\hline 
+Branch Office & The employees of  the branch office that will insert the request in the system & Branch Team & User, Proposal, Report, Project, Financial Office, Generalate, , TAG, Deadline and Budget.\\\hline 
+Financial Office & The employees of the main office responsible for the budget & Financial Team & Project, Branch Office, TAG, Budget, Funds, and Generalate \\\hline 
+Coordinators Office  & The employees of the main office responsible to define the type of the project & Coordinators Team & Branch Office, Generalate Main Office, Type, TAG, Report, Proposal. \\\hline 
+Generalate Main Office & The decision makers for the project evaluation & Generalate Leadership Team, Generalate & Project, Proposal, Branch Office, Financial Office, Coordinators Office, Branch, TAG, Funds, Deadline, Budget, Report, and Deadline.  \\\hline 
+Branch & The local offices of the organization, other than the main office, where the same activities are conducted. & Local office & Branch Office, Area\\\hline 
+Proposal & The request from the branch for undertaking a particular project. & Offer, Application & Generalate Main Office, Branch Office, Coordinators office, Type and TAG \\\hline
+TAG & The name assigned to a variable to be monitored. & Property, token, Unique ID. & Users and Reports \\\hline 
+Funds & The amount of money available that has been raised through the benefactors. & & Generalate, Benefactors\\ \hline
+Deadline & Date for requesting projects and status of Status change &  & Generalate team, Province team, Region team, Mission team, financial team \\\hline
+Area & The site where the projects are being proposed or are in progress or have been completed. & & Project, Type, and Proposal.  \\\hline
+Budget & The maximum or minimum amount of money needed for the project  & Project Site  & Proposal, Project, Generalate Main Office, Financial Office, Branch Office. \\\hline
+Type & The classification of a project based on the field of interest & Field or classification & Coordinators Office, Project, Proposal, Branch Office and Budget. \\\hline
+Report & The physical document that describes the details of the project  & & Generalate Main Office, Project \\\hline
+
+\end{longtable}
+
+\color{red}
+\section*{Functional Requirements}
+\color{black}
+
+The main function of the system is to hold all the information for the particular project. 
+
+\begin{itemize}
+\item Authentication of users and their roles. 
+\begin{itemize}
+\item Each user can login with their email-IDs and to access the database.
+\item Each user has a specific token that they have generated the first time they registered on the system and they will need to provide it each time they attempt to change the data.  
+\end{itemize}
+
+\item The data of the request.
+\begin{itemize}
+\item The exact time in the datetime format that the request was submitted. 
+\item The information of the user who made the request.
+\end{itemize}
+
+\item The project ID, a unique ID associated with each project.
+\begin{itemize}
+\item The area where the request comes from. The detailed information regarding the country, the city and if possible, the zip code.
+\end{itemize}
+
+\item The branch information.
+\begin{itemize}
+    \item The branch location. 
+    \item The branch manager.
+    \item The person in-charge for the specific project and his contact details.
+\end{itemize}
+
+ \item Project Information. 
+ \begin{itemize}
+    \item The deadline of the project, specifying the latest day of starting the project implementation.
+    \item The type of the project, specifying what the project is dealing with. The organisation deals with different projects that might be of different social activities like housing, hospitality services, religious support.
+    \item The budget needed by a particular project to be implemented. Here they will inform about the part of the funding that they can afford (if they can) and the part of the funding that they need from the organisation.
+    \item The description of the project which gives a brief explanation about the background of the problem that needs to be solved.
+    \item The target community that will benefit from the project.
+    \item The duration of the project. This tells about the total time a project need to be completed within.
+
+\end{itemize}
+
+The next function of this system is to manage the login operations and to provide different interfaces as per their specific roles in the organisation.
+\item An employee from the branch responsible office, should be able to:
+\begin{itemize}
+    \item Insert data about the specific project.
+    \item Update/delete the data as long as the status of the request is still pending.
+    \item Check the request all the time to see whether there is any update in the status of the request.
+    \item Check the feedback uploaded by the decision-making office of every worked-on request. 
+\end{itemize}
+
+\item An employee from the Financial Office, should be able to :
+\begin{itemize}
+    \item Check the budget data of the specific project.
+    \item Update the data by filling in some financial indicators. 
+\end{itemize}
+\item An employee from the Coordinators team, should be able to :
+\begin{itemize}
+    \item Check only some specific data from the project like the type of project.
+\end{itemize}
+\item An employee from the Generalate Main Office, should be able to :
+\begin{itemize}
+    \item Check all the data of the project. 
+    \item Update the status of the project. 
+    \item Add feedback for each accepted or rejected project.
+\end{itemize}
+\end{itemize}
+\color{red}
+\section*{Non-Functional Requirements}
+\color{black}
+
+\begin{itemize}
+\item The system must have a user-friendly web interface.
+\item The system must provide periodic backup of the files to avoid loss of data.
+\item The system must provide a fast loading, each page must load within 2 seconds.
+\item The system must provide a maximum file size for storage efficiency.
+\item The system must provide a common language.
+\end{itemize}
+
+\color{red}
+\section*{Non-Functional Requirements}
+\color{black}
+
+\begin{itemize}
+\item The system must have a user-friendly web interface.
+\item The system must provide periodic backup of the files to avoid loss of data.
+\item The system must provide a fast loading, each page must load within 2 seconds.
+\item The system must provide a maximum file size for storage efficiency.
+\item The system must provide a common language.
+\end{itemize}
+
+\color{red}
+\section*{Constraints}
+\color{black}
+The Database application should satisfy the following constraints:
+\begin{itemize}
+
+  \item Be implemented with PostgreSQL.
+  \item The system must provide interface implemented using css, html, javascript and Jquery.
+\end{itemize}
+\end{document}
+\vspace{12pt}
+
+\end{document}

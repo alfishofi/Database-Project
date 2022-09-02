@@ -1,0 +1,71 @@
+\begin{document}
+\color{red}
+\section*{Functional Requirements}
+\color{black}
+
+
+The main function of the system is to hold all the information for the particular project. 
+
+\begin{itemize}
+\item Authentication of users and their roles. 
+\begin{itemize}
+\item Each user can login with their email-IDs and to access the database.
+\item Each user has a specific token that they have generated the first time they registered on the system and they will need to provide it each time they attempt to change the data.  
+\end{itemize}
+
+\item The data of the request.
+\begin{itemize}
+\item The exact time in the datetime format that the request was submitted. 
+\item The information of the user who made the request.
+\end{itemize}
+
+\item The project ID, a unique ID associated with each project.
+\begin{itemize}
+\item The area where the request comes from. The detailed information regarding the country, the city and if possible, the zip code.
+\end{itemize}
+
+\item The branch information.
+\begin{itemize}
+    \item The branch location. 
+    \item The branch manager.
+    \item The person in-charge for the specific project and his contact details.
+\end{itemize}
+
+ \item Project Information. 
+ \begin{itemize}
+    \item The deadline of the project, specifying the latest day of starting the project implementation.
+    \item The type of the project, specifying what the project is dealing with. The organisation deals with different projects that might be of different social activities like housing, hospitality services, religious support.
+    \item The budget needed by a particular project to be implemented. Here they will inform about the part of the funding that they can afford (if they can) and the part of the funding that they need from the organisation.
+    \item The description of the project which gives a brief explanation about the background of the problem that needs to be solved.
+    \item The target community that will benefit from the project.
+    \item The duration of the project. This tells about the total time a project need to be completed within.
+
+\end{itemize}
+
+The next function of this system is to manage the login operations and to provide different interfaces as per their specific roles in the organisation.
+\item An employee from the branch responsible office, should be able to:
+\begin{itemize}
+    \item Insert data about the specific project.
+    \item Update/delete the data as long as the status of the request is still pending.
+    \item Check the request all the time to see whether there is any update in the status of the request.
+    \item Check the feedback uploaded by the decision-making office of every worked-on request. 
+\end{itemize}
+
+\item An employee from the Financial Office, should be able to :
+\begin{itemize}
+    \item Check the budget data of the specific project.
+    \item Update the data by filling in some financial indicators. 
+\end{itemize}
+\item An employee from the Coordinators team, should be able to :
+\begin{itemize}
+    \item Check only some specific data from the project like the type of project.
+\end{itemize}
+\item An employee from the Generalate Main Office, should be able to :
+\begin{itemize}
+    \item Check all the data of the project. 
+    \item Update the status of the project. 
+    \item Add feedback for each accepted or rejected project.
+\end{itemize}
+\end{itemize}
+  
+\end{document}
