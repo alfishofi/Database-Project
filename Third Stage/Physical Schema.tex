@@ -1,0 +1,94 @@
+CREATE DATABASE DB1920;
+CREATE SCHEMA D1;
+
+CREATE DOMAIN D1.Comment AS VarChar(200)
+    CONSTRAINT propercomment CHECK (((VALUE):: text ~* '(\w+)':: text));
+
+CREATE DOMAIN D1.Description AS VarChar(1000);
+
+CREATE DOMAIN D1.Email AS VarChar(2000)
+CONSTRAINT properemail CHECK (((VALUE)::
+text ~* '^(.+)@(.+)$':: text));
+
+CREATE DOMAIN D1.Username AS VarChar(1000)
+    CONSTRAINT properusername CHECK (((VALUE)::
+                                          text ~* '[a-zA-Z]{7,11}':: text));
+
+CREATE DOMAIN D1.Password_ AS VarChar(1000)
+    CONSTRAINT properpassword CHECK (((VALUE)::
+                                          text ~* '(\S{11,18})':: text));
+
+CREATE DOMAIN D1.Phone AS VarChar(100)
+    CONSTRAINT properphone CHECK (((VALUE) ::
+                                       text ~* '(\d+)' :: text));
+
+CREATE TYPE D1.Position_
+AS ENUM ('Branch Office Team',
+          'Financial Team',
+          'Coordinators team',
+          'Generalate Main Office' );
+
+CREATE TYPE D1.Type_
+AS ENUM ('Positive',
+    'Negative',
+    'Neutral');
+
+CREATE TYPE D1.D_Name
+AS ENUM ('Finance',
+          'Logistic',
+          'HR',
+          'Customer Care',
+		  'IT');
+
+CREATE TABLE D1.Status(Status_ID UUID PRIMARY KEY ,
+                       Current_ Boolean NOT NULL );
+
+CREATE TABLE D1.Budget(Budget_ID UUID PRIMARY KEY ,
+                       Amount_Present MONEY, Amount_Needed MONEY NOT NULL);
+
+CREATE TABLE D1.Credentials(Credentials_ID UUID PRIMARY KEY ,
+                            Username D1.Username NOT NULL ,
+                            Password_ D1.Password_ NOT NULL);
+
+CREATE TABLE D1.Role(Role_ID UUID PRIMARY KEY ,
+                     Position_ D1.Position_ NOT NULL);
+
+CREATE TABLE D1.Department(Department_ID UUID PRIMARY KEY ,
+                           Name_ Varchar(200) NOT NULL,
+                           Head_ Varchar(200) NOT NULL,
+                           Contact D1.Phone );
+
+CREATE TABLE D1.Branch(Branch_ID UUID PRIMARY KEY ,
+                       Name_ Varchar(200) NOT NULL,
+                       Main_ BOOLEAN NOT NULL, Address VarChar(1000) NOT NULL);
+
+CREATE TABLE D1.User(Email D1.Email PRIMARY KEY ,
+                     First_Name Varchar(200) NOT NULL,Last_Name Varchar(200) NOT NULL,
+                     Phone D1.Phone NOT NULL, C_ID UUID NOT NULL,B_ID UUID NOT NULL,R_ID UUID NOT NULL,
+                     D_ID UUID NOT NULL,FOREIGN KEY (C_ID) REFERENCES D1.Credentials(Credentials_ID),
+                     FOREIGN KEY (B_ID) REFERENCES D1.Branch(Branch_ID),
+                     FOREIGN KEY (R_ID) REFERENCES D1.Role(Role_ID),
+                     FOREIGN KEY (D_ID) REFERENCES D1.Department(Department_ID) );
+
+CREATE TABLE D1.Report(Report_ID UUID PRIMARY KEY ,
+                       Area Varchar(200) NOT NULL,Description D1.Description NOT NULL,
+                       Deadline Date NOT NULL,Person_in_charge Varchar(200) NOT NULL,
+                       B_ID UUID NOT NULL,U_ID D1.Email NOT NULL,
+                       FOREIGN KEY (B_ID) REFERENCES D1.Budget(Budget_ID),
+                       FOREIGN KEY (U_ID) REFERENCES D1.User(Email) );
+
+
+ALTER TABLE D1.Report ADD Date_of_request DATE nOT null Default CURRENT_DATE;
+ALTER TABLE D1.Report ADD Priority INT generated always as  ((DATE_PART('year', Deadline) - DATE_PART('year', Date_of_request)) * 12 + (DATE_PART('month', Deadline) - DATE_PART('month', Date_of_request)))  STORED;
+
+CREATE TABLE D1.Feedback(Feedback_ID UUID PRIMARY KEY ,
+                         Type_ D1.Type_ NOT NULL, Comment D1.Comment NOT NULL,
+                         R_ID UUID NOT NULL,
+                         S_ID UUID NOT NULL,FOREIGN KEY (R_ID) REFERENCES D1.Report(Report_ID),
+                         FOREIGN KEY (S_ID) REFERENCES D1.Status(Status_ID) );
+
+CREATE TABLE D1.Gets( R_ID UUID NOT NULL,S_ID UUID NOT NULL,
+                      FOREIGN KEY (R_ID) REFERENCES D1.Report(Report_ID),
+                      FOREIGN KEY (S_ID) REFERENCES D1.Status(Status_ID)); 
+
+

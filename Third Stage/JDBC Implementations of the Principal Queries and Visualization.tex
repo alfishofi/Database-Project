@@ -1,0 +1,46 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement ;
+import java.sql.ResultSet ;
+
+
+
+public class App {
+    //The JDBC driver to be used
+    public static void main(String args[]) {
+        Statement stmt = null;
+        Connection c = null;
+        try {
+            Class.forName("org.postgresql.Driver");
+            c = DriverManager
+                    .getConnection("jdbc:postgresql://localhost:5432/postgres",
+                            "postgres", "123456");
+            System.out.println("Creating statement...");
+            stmt = c.createStatement();
+            String sql1;
+            sql1 = "SELECT * FROM D1.User";
+            ResultSet rs = stmt.executeQuery(sql1);
+
+            while(rs.next()){
+                String User_id  = rs.getString("Email");
+                String Phone = rs.getString("Phone");
+                String First_Name = rs.getString("First_Name");
+                String Last_Name = rs.getString("Last_Name");
+
+                System.out.print("Email: " + User_id);
+                System.out.print(", First_Name: " + First_Name);
+                System.out.print(", Last_Name: " + Last_Name);
+                System.out.println(", Phone: " + Phone);
+            }
+            rs.close();
+            stmt.close();
+            c.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.err.println(e.getClass().getName()+": "+e.getMessage());
+            System.exit(0);
+        }
+        System.out.println("Opened database successfully");
+    }
+}

@@ -1,0 +1,155 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\documentclass{article}
+\usepackage{color}
+\usepackage{parskip}
+\usepackage{longtable}
+\usepackage{tabularx, tabularray}
+\usepackage{caption}
+\usepackage{blindtext}
+\usepackage[margin=25mm]{geometry}
+\pagenumbering{gobble}
+\usepackage{lipsum}
+\usepackage{xcolor,listings}
+\usepackage{textcomp}
+\lstset{upquote=true}
+
+\begin{document}
+
+
+
+\section{Principal Queries}
+
+In this section we report the queries needed to perform some operations on the database:
+
+\begin{enumerate}
+\item 
+\begin{enumerate}
+  \item Print the list of Reports that have the priority equal or less than 8 and the deadline before 2023.03.10.
+
+
+        \begin{lstlisting}[language=SQL,
+        keywordstyle=\color{blue},
+        stringstyle=\color{mauve},
+        showstringspaces=false,
+        basicstyle=\ttfamily\footnotesize]
+            SELECT (Report.Report\_ID)
+            FROM D1.Report
+            WHERE Report.Priority <= 8 AND Report.Deadline < '2023.03.10'; 
+        \end{lstlisting}
+        
+
+  \item Find the number of Reports that have the priority equal or less than 8 and the deadline before 2023.03.10.
+        \begin{lstlisting}[language=SQL,
+        keywordstyle=\color{blue},
+        stringstyle=\color{mauve},
+        showstringspaces=false,
+        basicstyle=\ttfamily\footnotesize]
+            SELECT Count(Report.Report\_ID)
+            FROM D1.Report
+            WHERE Report.Priority <= 8 AND Report.Deadline < '2023.03.10'; 
+        \end{lstlisting}
+
+\end{enumerate}
+
+    \item Retrieve a list of users together with their related information email, first\_name, last\_name, togther with the Branch\_ID they belong to using INNER JOIN.
+
+
+        \begin{lstlisting}[language=SQL,
+        keywordstyle=\color{blue},
+        stringstyle=\color{mauve},
+        showstringspaces=false,
+        basicstyle=\ttfamily\footnotesize]
+            SELECT u.email, u.first\_name, u.last\_name, b.Branch\_ID as Branch
+            FROM D1.User as u
+            INNER JOIN D1.Branch as b ON u.B\_ID= b.Branch\_ID;
+        \end{lstlisting}
+        
+  \item Retrieve a list of users together with their related information email, first\_name, last\_name, togther with their corresponding ROLE using LEFT JOIN.
+
+
+
+    \begin{lstlisting}[language=SQL,
+        keywordstyle=\color{blue},
+        stringstyle=\color{mauve},
+        showstringspaces=false,
+        basicstyle=\ttfamily\footnotesize]
+        SELECT u.Email, u.first\_name, u.last\_name, r.Role\_ID as Role
+        FROM D1.User as u
+        LEFT JOIN D1.Role as r ON u.R\_ID = r.Role\_ID
+     \end{lstlisting}        
+     
+ \item Retrieve a list of reports together with their report id, 
+present budget amount needed which their present budget is more than amount needed. 
+Also retrieve those which their present amount is below 1000.
+
+
+
+    \begin{lstlisting}[language=SQL,
+        keywordstyle=\color{blue},
+        stringstyle=\color{mauve},
+        showstringspaces=false,
+        basicstyle=\ttfamily\footnotesize]
+       SELECT report\_id, amount\_present, amoun\_needed
+       FROM D1.report AS R INNER JOIN D1.budget as B
+        ON R.b\_id = B.budget\_id
+    WHERE amount\_present > amount\_needed
+    UNION
+    SELECT report\_id, amount\_present, amount\_needed
+    FROM D1.report AS R INNER JOIN D1.budget as B
+    ON R.b\_id = B.budget\_id
+    WHERE amount\_present::numeric::int < 1000
+     \end{lstlisting}           
+\item For each Branch get the list of the users that are not creators
+\begin{lstlisting}[language=SQL,
+        keywordstyle=\color{blue},
+        stringstyle=\color{mauve},
+        showstringspaces=false,
+        basicstyle=\ttfamily\footnotesize]
+            SELECT branch\_id, first\_name, last\_name
+            FROM D1.user AS U FULL JOIN D1.report AS R
+            ON U.email = R.u\_id
+            FULL JOIN D1.branch as B
+            ON U.b\_id = B.branch\_id
+            WHERE u\_id IS NULL
+     \end{lstlisting}   
+\item Retrieve a list of project together with their report id, 
+present budget amount needed which their present budget is more than amount needed. 
+Also retrieve those which their amount needed is below 30000.
+  \begin{lstlisting}[language=SQL,
+        keywordstyle=\color{blue},
+        stringstyle=\color{mauve},
+        showstringspaces=false,basicstyle=\ttfamily\footnotesize]
+        SELECT report\_id, amount\_present, amount\_needed
+        FROM D1.report AS R INNER JOIN D1.budget as B
+        ON R.b\_id = B.budget\_id
+        WHERE amount\_present > amount\_needed
+        UNION
+        SELECT report\_id, amoun\t_present, amount\_needed
+        FROM D1.report AS R INNER JOIN D1.budget as B
+        ON R.b\_id = B.budget\_id
+        WHERE amount\_needed::numeric::int < 30000
+  \end{lstlisting}
+  
+\item Find the list of the Feedback\_ID and the status\_id that has 
+the variable Current equal to True , also with the Report\_ID  
+that has the deadline before 20/02/2022.
+  \begin{lstlisting}[language=SQL,
+        keywordstyle=\color{blue},
+        stringstyle=\color{mauve},
+        showstringspaces=false,basicstyle=\ttfamily\footnotesize]
+            SELECT Feedback.Feedback\_ID
+            FROM D1.Feedback
+            UNION
+            SELECT Status.Status\_ID
+            FROM D1.Status
+            WHERE Status.Current\_ = 'True'
+            UNION
+            SELECT Report.Report\_ID
+            FROM D1.Report
+            WHERE Report.Deadline > '2022.02.20';
+    \end{lstlisting}
+
+\end{lstlisting}
+\end{enumerate}
+\end{document}

@@ -1,0 +1,171 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[utf8]{inputenc}
+\usepackage{color}
+\usepackage{parskip}
+\usepackage{longtable}
+\usepackage{tabularx, tabularray}
+\usepackage{caption}
+\usepackage{blindtext}
+\usepackage[margin=25mm]{geometry}
+\pagenumbering{gobble}
+\usepackage{lipsum}
+
+
+\begin{document}
+\color{red}
+\section*{Data Dictionary}
+
+\color{black}
+\begin{longtable}{|p{.15\columnwidth}|p{.15\columnwidth} |p{.30\columnwidth}|p{.12\columnwidth}|p{.20\columnwidth} |} 
+\hline
+
+\textbf{Relation} & \textbf{Attribute} & \textbf{Description} & \textbf{Domain} & \textbf{Constraints} \\\hline
+
+\multirow{User}
+&  Email & User's Email-ID & Text & Primary key\\\cline{2-5}
+& First\_name & User's Name & Text  & Not Null \\\cline{2-5}
+& Last\_name  & User's Surname &  Text &  Not Null \\\cline{2-5}
+& Phone &  User's Phone Number &  Text &  Not Null \\\cline{2-5}
+& Department\_ID & ID's department & Serial & Foreign key \\\cline{2-5}
+& Branch\_ID & Branch Identifier & Serial & Foreign key  \\\cline{2-5}
+& Credentials\_ID & Credential identifier & Serial & Foreign key \\\cline{2-5}
+& Permission\_ID & Permissions identifier & Serial & Foreign key \\\cline{2-5}
+& Position\_ID & Position Identifier & Serial & Foreign key
+\\\hline
+
+Branch & ID & Branch Identifier & Serial & Primary key \\\cline{2-5}
+& main\_or\_branch & Boolean Value to represent if the employee belongs to main office or branch office & Text & Not Null \\\cline{2-5}
+& Name & If the Employee belongs to main office This would indicate "main Office" else it will hold the name of the branch they belong to. & Text & Not Null \\\cline{2-5}
+& Address & It holds the exact location of the branch & Text & Not Null\\\hline
+
+Credentials & ID & Credential identifier & Serial & Primary key \\\cline{2-5}
+& Username & User's name shown on the system & Text & Not Null \\\cline{2-5}
+& Password & User's Passkey to enter the system & Text & Not Null\\\hline
+
+Role & Position\_ID & Position Identifier & Serial & Primary Key \\\cline{2-5}
+& Position & User's Position for the role & Text & Not Null \\\hline
+
+Department & ID & Department Identifier & Serial & Primary key \\\cline{2-5}
+& Name & The specific department e.g.: HR, Finance, Logistics, etc. & Text & Not Null\\\cline{2-5}
+& Head of Department & The person leading the work for the specific department & Text & Not Null\\\cline{2-5}
+& Contact Number & Phone Number to reach the Department & Text & Not Null\\\hline
+
+Permissions & ID & Permissions identifier & Serial & Primary key \\\cline{2-5}
+& Action & All types of interactions allowed for a user role & Text & Not Null\\\hline
+
+Report & Report\_ID & Report identifier & Serial & Primary key \\\cline{2-5}
+& Area & Used to show the region where the concerned request comes from.  & Text & Not Null \\\cline{2-5}
+& Person in Charge & Used to store the information about the person who prepared the report and the one to be contacted for further information &  Text & Not Null \\\cline{2-5}
+& Date of Request & Used to specify the date the request was received & Integer & Not Null \\\cline{2-5}
+& Priority & Integer value representing the priority of the project ranging from 1-10 and decreasing with time  & Integer & Not Null \\\cline{2-5}
+& Deadline & Shows the deadline by which the project should be implemented & Integer & Not Null \\\cline{2-5}
+& Description & Specific explanations about the report & Text & Not Null \\\cline{2-5}
+& Creator & Creator of the report & Text & Foreign key \\\cline{2-5}
+& Status\_var & Current Status of the report showing if the project is approved or rejected or pending & Text & Foreign key \\\cline{2-5}
+& Budget\_ID & Budget Identifier & Serial &  Foreign key
+\\\hline
+
+Status & status\_variable & Current Status of the report showing if the project is approved or rejected or pending & Text & Primary key \\\cline{2-5}
+& date\_of\_status & The date of latest status update & Text & Not Null \\\cline{2-5}
+& Feedback\_ID & Feedback Identifier & Serial & Foreign key
+\\\hline
+
+Feedback & ID & Feedback Identifier & Serial & Primary Key\\\cline{2-5}
+& Type & Based on the status updated by the responsible office this is a drop-down menu with 2 options i.e. positive or negative & Text & Not Null \\\cline{2-5}
+& Comment & Optional field representing the reason for the specific status update & Text & Not Null\\\cline{2-5}
+& Date\_of\_feedback & used to show the time the comment was added & Integer & Not Null\\\hline
+
+Budget & ID & Budget Identifier & Serial &  Primary key\\\cline{2-5}
+& Amount\_present & The amount of money the branch can contribute for the project & Integer & Not Null \\\cline{2-5}
+& Amount\_needed & The amount of money the branch office needs from the main office to develop the project & Integer & Not Null\\\hline
+
+
+\end{longtable}
+
+\end{document}\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[utf8]{inputenc}
+\usepackage{color}
+\usepackage{parskip}
+\usepackage{longtable}
+\usepackage{tabularx, tabularray}
+\usepackage{caption}
+\usepackage{blindtext}
+\usepackage[margin=25mm]{geometry}
+\pagenumbering{gobble}
+\usepackage{lipsum}
+
+
+\begin{document}
+\color{red}
+\section*{Data Dictionary}
+
+\color{black}
+\begin{longtable}{|p{.15\columnwidth}|p{.15\columnwidth} |p{.30\columnwidth}|p{.12\columnwidth}|p{.20\columnwidth} |} 
+\hline
+
+\textbf{Relation} & \textbf{Attribute} & \textbf{Description} & \textbf{Domain} & \textbf{Constraints} \\\hline
+
+\multirow{User}
+&  Email & User's Email-ID & Text & Primary key\\\cline{2-5}
+& First\_name & User's Name & Text  & Not Null \\\cline{2-5}
+& Last\_name  & User's Surname &  Text &  Not Null \\\cline{2-5}
+& Phone &  User's Phone Number &  Text &  Not Null \\\cline{2-5}
+& Department\_ID & ID's department & Serial & Foreign key \\\cline{2-5}
+& Branch\_ID & Branch Identifier & Serial & Foreign key  \\\cline{2-5}
+& Credentials\_ID & Credential identifier & Serial & Foreign key \\\cline{2-5}
+& Permission\_ID & Permissions identifier & Serial & Foreign key \\\cline{2-5}
+& Position\_ID & Position Identifier & Serial & Foreign key
+\\\hline
+
+Branch & ID & Branch Identifier & Serial & Primary key \\\cline{2-5}
+& main\_or\_branch & Boolean Value to represent if the employee belongs to main office or branch office & Text & Not Null \\\cline{2-5}
+& Name & If the Employee belongs to main office This would indicate "main Office" else it will hold the name of the branch they belong to. & Text & Not Null \\\cline{2-5}
+& Address & It holds the exact location of the branch & Text & Not Null\\\hline
+
+Credentials & ID & Credential identifier & Serial & Primary key \\\cline{2-5}
+& Username & User's name shown on the system & Text & Not Null \\\cline{2-5}
+& Password & User's Passkey to enter the system & Text & Not Null\\\hline
+
+Role & Position\_ID & Position Identifier & Serial & Primary Key \\\cline{2-5}
+& Position & User's Position for the role & Text & Not Null \\\hline
+
+Department & ID & Department Identifier & Serial & Primary key \\\cline{2-5}
+& Name & The specific department e.g.: HR, Finance, Logistics, etc. & Text & Not Null\\\cline{2-5}
+& Head of Department & The person leading the work for the specific department & Text & Not Null\\\cline{2-5}
+& Contact Number & Phone Number to reach the Department & Text & Not Null\\\hline
+
+Permissions & ID & Permissions identifier & Serial & Primary key \\\cline{2-5}
+& Action & All types of interactions allowed for a user role & Text & Not Null\\\hline
+
+Report & Report\_ID & Report identifier & Serial & Primary key \\\cline{2-5}
+& Area & Used to show the region where the concerned request comes from.  & Text & Not Null \\\cline{2-5}
+& Person in Charge & Used to store the information about the person who prepared the report and the one to be contacted for further information &  Text & Not Null \\\cline{2-5}
+& Date of Request & Used to specify the date the request was received & Integer & Not Null \\\cline{2-5}
+& Priority & Integer value representing the priority of the project ranging from 1-10 and decreasing with time  & Integer & Not Null \\\cline{2-5}
+& Deadline & Shows the deadline by which the project should be implemented & Integer & Not Null \\\cline{2-5}
+& Description & Specific explanations about the report & Text & Not Null \\\cline{2-5}
+& Creator & Creator of the report & Text & Foreign key \\\cline{2-5}
+& Status\_var & Current Status of the report showing if the project is approved or rejected or pending & Text & Foreign key \\\cline{2-5}
+& Budget\_ID & Budget Identifier & Serial &  Foreign key
+\\\hline
+
+Status & status\_variable & Current Status of the report showing if the project is approved or rejected or pending & Text & Primary key \\\cline{2-5}
+& date\_of\_status & The date of latest status update & Text & Not Null \\\cline{2-5}
+& Feedback\_ID & Feedback Identifier & Serial & Foreign key
+\\\hline
+
+Feedback & ID & Feedback Identifier & Serial & Primary Key\\\cline{2-5}
+& Type & Based on the status updated by the responsible office this is a drop-down menu with 2 options i.e. positive or negative & Text & Not Null \\\cline{2-5}
+& Comment & Optional field representing the reason for the specific status update & Text & Not Null\\\cline{2-5}
+& Date\_of\_feedback & used to show the time the comment was added & Integer & Not Null\\\hline
+
+Budget & ID & Budget Identifier & Serial &  Primary key\\\cline{2-5}
+& Amount\_present & The amount of money the branch can contribute for the project & Integer & Not Null \\\cline{2-5}
+& Amount\_needed & The amount of money the branch office needs from the main office to develop the project & Integer & Not Null\\\hline
+
+
+\end{longtable}
+
+\end{document}

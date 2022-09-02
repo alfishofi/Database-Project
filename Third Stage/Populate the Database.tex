@@ -1,0 +1,99 @@
+INSERT INTO D1.Status(Status_ID,Current_) VALUES
+('e3abfd3e-2c03-4288-84bf-87a817c4de9b', 'True'),
+('b6ec1f04-c03d-4b24-9f5c-7917d18629fa', 'True'),
+('f5739f25-45d6-495d-82b1-2ca437ec7415', 'True'),
+('224049cf-4a70-4a2a-9151-a677f07258fc', 'True'),
+('f74e5ef8-16ff-44ad-aa05-0fdc1a6a8c12', 'True'),
+('bd49a692-d1ee-45a2-bd32-6e29e1aa884d', 'True'),
+('0b1d6916-f732-400a-82a5-9e5c47448435', 'True'),
+('ff9f614b-1b67-4c7f-8f14-d1b244b98aa0', 'True');
+
+INSERT INTO D1.Budget(Budget_ID,Amount_Present,Amount_Needed) VALUES
+('efe47302-d960-4749-9260-e0857799b04d', '25000', '24000'),
+('9cd38ead-cbdc-4473-9169-bf315a8d46bc', '75000', '64000'),
+('1f119843-61e7-4359-9266-17bf809ad802', '3700', '39000'),
+('7727661b-04d2-44be-b65c-a64bbb453934', '83000', '63000'),
+('bdd7b3f4-e1a0-4983-b3e8-bf32719a425f', '1700', '32000'),
+('e9830d6e-c38c-46f5-980e-246c2044f8e9', '0', '39000');
+
+INSERT INTO D1.Budget(Budget_ID,Amount_Needed) VALUES
+('af83b685-c9de-4bf4-8910-ae0564ed032b', '100000');
+
+
+INSERT INTO D1.Credentials(Credentials_ID,Username,Password_) VALUES
+('03afe1c4-d723-4a9a-ba5f-d970d7ab85b7', 'lenasmith', 'marco*125_marco'),
+('f1703d8c-2241-44e2-9de2-3b92b48b4c35', 'nicolgreen', '512512124355'),
+('da7725aa-233b-43e9-87cc-9401de8ec873', 'tomtaylor', '387191*ggwp'),
+('9f42561e-02e9-4593-9a42-cd9ed4b7ffaa', 'paulmiller', 'imnotaspy_123*'),
+('56ebebd5-8c7a-45f4-8b7a-38ee4f650967', 'alenlee', '387191*ggwp'),
+('a166313c-2253-4f4f-9b9e-aba819f2feea', 'davidking', '32451kingda'),
+('73274d5a-bd0f-456c-a4fd-3b3962731779', 'obmarwood', '191*obmarrrr'),
+('6a6a2a07-ea3e-4299-9ef2-6b33bd7a163e', 'jonesmith', 'jones4444432'),
+('ca9929d1-0c96-486a-980b-2dcb4bf26b36', 'lucywhite', '3treesontheway'),
+('dbf1d89d-5bb1-4b7c-b95f-a321160ae792', 'lonakley', 'dontthinkaboutit');
+
+
+INSERT INTO D1.Role(Role_ID,Position_) VALUES
+('f1e0f5d2-8b5f-4c73-b473-41fd68acc94d', 'Generalate Main Office'),
+('7a009b64-cfb4-4c79-a61d-65fcbb4c3d2e', 'Branch Office Team'),
+('3ddd515c-0232-44a9-9e3a-9c342e13f948', 'Financial Team'),
+('53b45115-11d1-476b-98a6-b5e11fe2a079', 'Coordinators team');
+
+
+INSERT INTO D1.Department(Department_ID,Name_,Head_ ,Contact) VALUES
+('2df07ce3-8042-4821-862f-a90e29b57da0', 'Customer Care', 'Marco Tomasin', '00391234567890'),
+('74ad40b1-56ec-4d08-81cc-baa151963a07', 'HR', 'Marry Tommy', '00391234567891'),
+('de9cc2b4-e422-4bba-9832-d59b7310058b', 'Finance', 'Katty Jones', '00391234567893'),
+('563f4fc5-3b87-46ac-ad85-e9aceb04c549', 'Logistic', 'Martin Smith', '00391234567897'),
+('b482c32e-8b72-4d73-be34-3ae17bc0870e', 'IT', 'Adele Dan', '00391234567897');
+
+
+INSERT INTO D1.Branch(Branch_ID,Name_,Main_,Address) VALUES
+('79cef980-631e-4288-b223-801a9bd04128', 'Rome Office', 'True', 'Via Pietro Liberi 1, Rome'),
+('dba7366d-7b0a-47ef-82e6-e7b0cc2c8d6e', 'Padova Office', 'False', 'Piazza Duomo 11, Padova'),
+('53db79cf-e902-411c-ac52-9a14ce649baf', 'TelAviv Office', 'False', 'Street Telaviv 1, Tel Aviv'),
+('3b544b74-d728-4137-8b32-eb44f9581c59', 'Tirana Office', 'False',  'Street Zogu I, Prane Redaksise 1'),
+('2389977b-e44b-41d2-835c-6e2dce3b7c4e', 'Moskow Office', 'False', 'Ul Voloshinoy, bld 6/А appt 51'),
+('262aa3a6-2fe2-4a22-aa5b-4a4797d3d874', 'Berlin Office', 'False', 'Unter den Linden 15'),
+('9d510dab-34b4-4dd9-a64d-a5e716355acf', 'London Office', 'False', '33 Nottingham Rd');
+;
+
+INSERT INTO D1.User(Email,First_Name,Last_Name,Phone,C_ID,B_ID,D_ID,R_ID) VALUES
+('lena.smith84@gmail.com', 'Lena', 'Smith',  '00391234567890', '03afe1c4-d723-4a9a-ba5f-d970d7ab85b7', '79cef980-631e-4288-b223-801a9bd04128', '2df07ce3-8042-4821-862f-a90e29b57da0',  'f1e0f5d2-8b5f-4c73-b473-41fd68acc94d'),
+('nicol.green77@gmail.com', 'Nicol', 'Green',  '00391234567891', 'f1703d8c-2241-44e2-9de2-3b92b48b4c35', '79cef980-631e-4288-b223-801a9bd04128', '74ad40b1-56ec-4d08-81cc-baa151963a07', 'f1e0f5d2-8b5f-4c73-b473-41fd68acc94d'),
+('tomtaylor85@gmail.com', 'Tom', 'Taylor',  '00391234567893', 'da7725aa-233b-43e9-87cc-9401de8ec873', '79cef980-631e-4288-b223-801a9bd04128', 'de9cc2b4-e422-4bba-9832-d59b7310058b', '3ddd515c-0232-44a9-9e3a-9c342e13f948'),
+('paulmiller@gmail.com', 'Paul', 'Miller',  '00391234567897', '9f42561e-02e9-4593-9a42-cd9ed4b7ffaa', '79cef980-631e-4288-b223-801a9bd04128', '563f4fc5-3b87-46ac-ad85-e9aceb04c549', '53b45115-11d1-476b-98a6-b5e11fe2a079'),
+('alenlee@gmail.com', 'Alen', 'Lee',  '00394443325567', '56ebebd5-8c7a-45f4-8b7a-38ee4f650967', '79cef980-631e-4288-b223-801a9bd04128', 'b482c32e-8b72-4d73-be34-3ae17bc0870e',  '53b45115-11d1-476b-98a6-b5e11fe2a079'),
+('davidking77@gmail.com', 'David', 'King',  '00393656547888', 'a166313c-2253-4f4f-9b9e-aba819f2feea', 'dba7366d-7b0a-47ef-82e6-e7b0cc2c8d6e', '563f4fc5-3b87-46ac-ad85-e9aceb04c549', '7a009b64-cfb4-4c79-a61d-65fcbb4c3d2e'),
+('obmarwood@gmail.com', 'Obmar', 'Wood',  '00396575674355445', '73274d5a-bd0f-456c-a4fd-3b3962731779', '53db79cf-e902-411c-ac52-9a14ce649baf', '2df07ce3-8042-4821-862f-a90e29b57da0', '7a009b64-cfb4-4c79-a61d-65fcbb4c3d2e'),
+('jonesmith@gmail.com', 'Jone', 'Smith',  '0039747543243667878', '6a6a2a07-ea3e-4299-9ef2-6b33bd7a163e', '3b544b74-d728-4137-8b32-eb44f9581c59', '2df07ce3-8042-4821-862f-a90e29b57da0', '7a009b64-cfb4-4c79-a61d-65fcbb4c3d2e'),
+('lucy.white85@gmail.com', 'Lucy', 'White',  '003912543893', 'ca9929d1-0c96-486a-980b-2dcb4bf26b36', '2389977b-e44b-41d2-835c-6e2dce3b7c4e', 'de9cc2b4-e422-4bba-9832-d59b7310058b', '7a009b64-cfb4-4c79-a61d-65fcbb4c3d2e'),
+('lonakley93@gmail.com', 'Lona', 'Kley',  '00391234564397', 'dbf1d89d-5bb1-4b7c-b95f-a321160ae792', '262aa3a6-2fe2-4a22-aa5b-4a4797d3d874', '563f4fc5-3b87-46ac-ad85-e9aceb04c549', '7a009b64-cfb4-4c79-a61d-65fcbb4c3d2e');
+
+INSERT INTO D1.Report(Report_ID,Area,Description,Deadline,Person_in_charge,B_ID,U_ID) VALUES
+('2714f5d8-d906-4c80-8898-d85d777cf2e2', 'Europe', 'For people who need for health', '2022/12/12', 'Marco Tomasin', 'efe47302-d960-4749-9260-e0857799b04d', 'davidking77@gmail.com'),
+('38971968-4a5c-4ad8-83e5-9f43900e5df7', 'Africa', 'For Church of one of Asian','2022/03/02', 'Marry Tommy', '9cd38ead-cbdc-4473-9169-bf315a8d46bc','obmarwood@gmail.com'),
+('e1d2c40c-f2f3-4ee7-9adb-ad6ef72fe134', 'Asia', 'For school books','2022/07/12', 'Katy George', '1f119843-61e7-4359-9266-17bf809ad802', 'obmarwood@gmail.com'),
+('fab087e8-8cd7-482e-96e4-bb2cebc54ecf', 'Asia', 'For people cant pay their surgery', '2022/10/20', 'Rihanna Jones', '7727661b-04d2-44be-b65c-a64bbb453934', 'lucy.white85@gmail.com'),
+('46d9f71e-18f7-42c3-8199-80c9d23ce1ed', 'Europe', 'For people who need for health', '2022/11/01',  'Marco Tomasin', 'bdd7b3f4-e1a0-4983-b3e8-bf32719a425f', 'jonesmith@gmail.com'),
+('0c603099-c801-47c6-9abb-604e9665b912', 'Africa', 'For Church of one of Asian','2022/09/02', 'Marry Tommy', 'e9830d6e-c38c-46f5-980e-246c2044f8e9','lonakley93@gmail.com'),
+('2cd38322-b108-42f1-b410-7bd25d842cdb', 'Asia', 'For school books','2022/09/12',  'Katy George', 'af83b685-c9de-4bf4-8910-ae0564ed032b', 'davidking77@gmail.com');
+
+
+
+INSERT INTO D1.Feedback(Feedback_ID,Type_,Comment,R_ID,S_ID) VALUES
+('e87fcb16-af1b-45a4-9d21-651279b53d97', 'Negative', 'Need to finish soon','2714f5d8-d906-4c80-8898-d85d777cf2e2', 'e3abfd3e-2c03-4288-84bf-87a817c4de9b'),
+('b10f0326-cfcd-4b26-9ba5-a99e06c4b20f', 'Neutral', 'Good work','38971968-4a5c-4ad8-83e5-9f43900e5df7',  'b6ec1f04-c03d-4b24-9f5c-7917d18629fa'),
+('ec5bdf63-6d65-48ad-9256-a61483d0f4a6', 'Positive', 'Need more amount','e1d2c40c-f2f3-4ee7-9adb-ad6ef72fe134','f5739f25-45d6-495d-82b1-2ca437ec7415'),
+('89ab26d1-7032-4358-805f-06dd484a0e04', 'Positive', 'Need to be clear about country', 'fab087e8-8cd7-482e-96e4-bb2cebc54ecf', '224049cf-4a70-4a2a-9151-a677f07258fc');
+
+
+INSERT Into D1.Gets(R_ID,S_ID) VALUES
+('2714f5d8-d906-4c80-8898-d85d777cf2e2', 'e3abfd3e-2c03-4288-84bf-87a817c4de9b'),
+('38971968-4a5c-4ad8-83e5-9f43900e5df7', 'b6ec1f04-c03d-4b24-9f5c-7917d18629fa'),
+('e1d2c40c-f2f3-4ee7-9adb-ad6ef72fe134', 'f5739f25-45d6-495d-82b1-2ca437ec7415'),
+('fab087e8-8cd7-482e-96e4-bb2cebc54ecf', '224049cf-4a70-4a2a-9151-a677f07258fc'),
+('46d9f71e-18f7-42c3-8199-80c9d23ce1ed', 'f74e5ef8-16ff-44ad-aa05-0fdc1a6a8c12'),
+('0c603099-c801-47c6-9abb-604e9665b912', 'bd49a692-d1ee-45a2-bd32-6e29e1aa884d'),
+('2cd38322-b108-42f1-b410-7bd25d842cdb', '0b1d6916-f732-400a-82a5-9e5c47448435'),
+('46d9f71e-18f7-42c3-8199-80c9d23ce1ed', 'ff9f614b-1b67-4c7f-8f14-d1b244b98aa0');

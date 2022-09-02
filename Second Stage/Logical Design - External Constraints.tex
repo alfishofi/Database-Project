@@ -1,0 +1,25 @@
+\documentclass{article}
+\usepackage{color}
+\usepackage{parskip}
+\usepackage{blindtext}
+\usepackage[margin=25mm]{geometry}
+\pagenumbering{gobble}
+
+\begin{document}
+
+ \color{red}
+  \textbf{External Constraints}
+  \vspace{14pt}
+\end{center}
+
+\color{black}
+\begin{itemize}
+    \item The feedback written by the responsible employee from the main office, generelate team should be addressed to the correct User. So, in any case the corresponding employee can be contacted to give further details and the feedback\_type cannot be NULL.
+    \item In addition to the status features which should not be NULL, there should be included a status history so that in some unexpected situations the responsible USERS can better understand the issue.
+    \item If a USER is working at two different ROLES at the same time( to define them we will have an attribute called position\_ID, which is gonna be the PRIMARY KEY), he can not be defined on both of them and having the corresponding permissions.
+    \item There should be some more information about how the “HAVE” (integer value) attribute of the BUDGET is collected.
+    
+\end{itemize}
+
+
+\end{document}
